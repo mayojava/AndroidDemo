@@ -24,6 +24,7 @@ import javax.inject.Inject;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasAction;
@@ -80,7 +81,7 @@ public class DriverProfileActivityTest {
         callback.setDrivers(TestUtils.getDversList());
         callback.run();
 
-        onView(withId(R.id.textSearch)).perform(typeText("sa"));
+        onView(withId(R.id.textSearch)).perform(typeText("sa"), closeSoftKeyboard());
 
         onView(withText("Sarah Friedrich"))
                 .inRoot(
