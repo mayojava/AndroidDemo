@@ -24,6 +24,7 @@ import javax.inject.Inject;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -72,7 +73,7 @@ public class MainActivityTest {
     public void shouldSeeExpectedNameInSearchResult_whenSearchKeywordIsRight() {
         launchActivity();
 
-        onView(withId(R.id.textSearch)).perform(typeText("sa"));
+        onView(withId(R.id.textSearch)).perform(typeText("sa"), closeSoftKeyboard());
 
         onView(withText("Sarah Friedrich"))
                 .inRoot(
@@ -94,7 +95,7 @@ public class MainActivityTest {
     public void clickingOnSearchResult_shouldShowProfilePage() {
         launchActivity();
 
-        onView(withId(R.id.textSearch)).perform(typeText("sa"));
+        onView(withId(R.id.textSearch)).perform(typeText("sa"), closeSoftKeyboard());
 
         onView(withText("Sarah Friedrich"))
                 .inRoot(
