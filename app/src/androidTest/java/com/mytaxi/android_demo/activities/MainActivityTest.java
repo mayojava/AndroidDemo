@@ -105,6 +105,7 @@ public class MainActivityTest {
     }
 
     private void launchActivity() {
+        reset(httpClient);
         final ArgumentCaptor<HttpClient.DriverCallback> driverCallbackArgumentCaptor =
                 ArgumentCaptor.forClass(HttpClient.DriverCallback.class);
 
